@@ -1,51 +1,57 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import CardList from '../components/CardList';
-import SearchBox from '../components/SearchBox'
+import SearchBox from '../components/SearchBox';
+import Scroll from '../components/Scroll';
+import { useSelector, useDispatch } from 'react-redux';
 import'./App.css';
-import Scroll from '../components/Scroll'
-import ErrorBoundary from '../components/ErrorBoundary'
+import ErrorBoundary from '../components/ErrorBoundary';
 
-const state = {
-	robots: [],
-	searchfield: ''
-}
-class App extends Component {
-	constructor(){
-		super()
-		this.state = {
-			robots: [],
-	        searchfield: ''
-		}
+import {setSearchField, requestRobots} from '../actions';
+
+
+const App = ({store}) => {
+
+	const [searchResults, setSearchResults] = useState([]);
+	const text = useSelector(state => state.searchRobots.searchField);
+	const robots = useSelector(state => state.getRobots.users);
+	const pending = useSelector(state => state.getRobots.isPending)
+	const dispatch = useDispatch();
+	const onSearchChange= (event) => {
+		dispatch(setSearchField(event.target.value))
 	}
 
-	componentDidMount(){
-		fetch('https://jsonplaceholder.typicode.com/users')
-		 .then(response => response.json())
-         .then(users => this.setState({robots:users}));
-	}
-	onSearchChange = (event) => {
-		this.setState({ searchfield: event.target.value})
-	}
-	render (){
-		const { robots, searchfield } = this.state;
-		const filteredRobots = robots.filter(robot => {
-			return robot.name.toLowerCase().includes(searchfield.toLowerCase())
-		})
-		return !robots.length ?
-			<h1>Loading...</h1> :
-		    (
-				<div className='tc'>
-					<h1 className='f1'>RoboFriends</h1>
-					<SearchBox searchChange ={this.onSearchChange}/>
-					<Scroll>
-					  <ErrorBoundary>
-						<CardList robots={filteredRobots}/>
-					  </ErrorBoundary>	
-					</Scroll>	
-				</div>
-			);
-		}
-	}	
+	useEffect(() =>  {
+        dispatch(requestRobots());
+    }, [dispatch])
+
+	useEffect(() => {
+        let filteredRobots = robots.filter(robot => {
+            return(
+                robot.name.toLowerCase().includes(text.toLowerCase())
+            );
+        });
+        setSearchResults(filteredRobots);
+    }, [text,robots])
+
+	const newRobot = searchResults;
+
+
+		return pending ?
+		<h1>Loading...</h1> :
+		(
+			<div className="tc">
+				<Scroll>
+					<h1 className="f2">RoboFriends</h1>
+					<SearchBox SearchChange={ onSearchChange }/>
+				</Scroll>
+					{
+						text === "" ? <CardList robots={ robots }/> : <CardList robots={ newRobot }/>
+					}
+			</div>
+		);
+    }	
+	
+		
 	
 
-export default App
+export default App;

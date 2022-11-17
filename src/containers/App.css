@@ -6,7 +6,10 @@
     }
 
     h1{
+      position: -webkit-sticky;
       font-family:'SEGA LOGO FONT';
       font-weight: 200;
       color: #0ccac4;
     }
+
+  
