@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
-import Scroll from '../components/Scroll';
 import { useSelector, useDispatch } from 'react-redux';
 import'./App.css';
+import Scroll from '../components/Scroll';
 import ErrorBoundary from '../components/ErrorBoundary';
 
 import {setSearchField, requestRobots} from '../actions';
@@ -35,22 +35,22 @@ const App = ({store}) => {
 
 	const newRobot = searchResults;
 
-
-		return pending ?
+	return pending ?
 		<h1>Loading...</h1> :
-		(
-			<div className="tc">
+		   (
+			<div className='tc'>
 				<Scroll>
-					<h1 className="f2">RoboFriends</h1>
-					<SearchBox SearchChange={ onSearchChange }/>
+					<h1 className='f1'>RoboFriends</h1>
+					<SearchBox searchChange ={onSearchChange}/>
 				</Scroll>
-					{
-						text === "" ? <CardList robots={ robots }/> : <CardList robots={ newRobot }/>
-					}
-			</div>
-		);
-    }	
-	
+					<ErrorBoundary>
+					 {
+                    text === "" ? <CardList robots={ robots }/> : <CardList robots={ newRobot }/>
+                     }
+					</ErrorBoundary>	
+				</div>
+			);
+		}
 		
 	
 
