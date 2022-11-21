@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import'./App.css';
 import Scroll from '../components/Scroll';
 import ErrorBoundary from '../components/ErrorBoundary';
+import Header from	'../components/header';
 
 import {setSearchField, requestRobots} from '../actions';
 
@@ -40,7 +41,7 @@ const App = ({store}) => {
 		   (
 			<div className='tc'>
 				<Scroll>
-					<h1 className='f1'>RoboFriends</h1>
+					<Header />
 					<SearchBox searchChange ={onSearchChange}/>
 				</Scroll>
 					<ErrorBoundary>

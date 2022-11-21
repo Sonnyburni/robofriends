@@ -27,7 +27,7 @@ const initialStateRobots = {
     error: null
 }
 
-export const getRobots = (state = initialStateRobots, action) => {
+export const getRobots = (state = initialStateRobots, action={}) => {
     switch (action.type) {
         case REQUEST_ROBOTS_PENDING:
             return { ...state,
