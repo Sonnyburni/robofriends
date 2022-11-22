@@ -1,9 +1,8 @@
 var CACHE_NAME = "app name"
 
 var urlsToCache = [
-  'https://sonnyburni.github.io/robofriends/',
-  '/completed',
-  'https://jsonplaceholder.typicode.com/users'
+  '/',
+  '/completed'
 ];
 
 // Install a service worker
