@@ -24,7 +24,6 @@ export const searchRobots = ( state = initialState , { type, payload } ) => {
 const initialStateRobots = {
     isPending: false,
     users: [],
-    error: null
 }
 
 export const getRobots = (state = initialStateRobots, action={}) => {
@@ -40,8 +39,8 @@ export const getRobots = (state = initialStateRobots, action={}) => {
             }
         case REQUEST_ROBOTS_FAILED:
             return {...state,
-                users: action.payload,
-                isPending:false
+                users: [],
+                error: action.payload
             }    
         default:
             return state;
