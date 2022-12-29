@@ -19,7 +19,7 @@ The CSS is implemented with the [Tachyons](https://tachyons.io) NPM module (whic
 Finally, [RoboHash](https://robohash.org) is used for generating the Robot Avatars.
 <br><br>
 This app is also 100% rated by Google Lighthouse testing (desktop).
-![RoboFriends Preview](./src/images/lighthouse-rating.png)
+![RoboFriends Preview](lighthouse-badges.png)
 <br><br>
 <i>Acknowledgements: Thanks to Andrei Neagoie and his [course](https://www.udemy.com/the-complete-web-developer-zero-to-mastery). Also, thanks to the Z2M Discord channel for providing additional support too.
 </i>
