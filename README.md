@@ -11,6 +11,8 @@
 <p>
 
 RoboFriends is a responsive single page web application, allowing users to filter the Robots results data via the search form. 
+The app utilizes Hooks with Redux for state management. 
+Unit tests and snapshot testing were carried out using the React Testing Library and Jest.
 <br><br>
 Created with React App, connecting to a mock API from [JSON Placeholder](http://jsonplaceholder.typicode.com) via a Fetch statement. 
 <br><br>
@@ -19,7 +21,7 @@ The CSS is implemented with the [Tachyons](https://tachyons.io) NPM module (whic
 Finally, [RoboHash](https://robohash.org) is used for generating the Robot Avatars.
 <br><br>
 This app is also 100% rated by Google Lighthouse testing (desktop).
-![RoboFriends Preview](lighthouse-badges.png)
+![RoboFriends Preview](./src/images/lighthouse-rating.png)
 <br><br>
 <i>Acknowledgements: Thanks to Andrei Neagoie and his [course](https://www.udemy.com/the-complete-web-developer-zero-to-mastery). Also, thanks to the Z2M Discord channel for providing additional support too.
 </i>
