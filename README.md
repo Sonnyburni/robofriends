@@ -1,7 +1,7 @@
 <h1 align="center">RoboFriends</h1>
 <div align="center">
 
-:rocket: **[View Live Demo](https://rbhachu-robofriends.netlify.app/)** :rocket:<br>
+:rocket: **[View Live Demo](https://sonnyburni.github.io/robofriends/)** :rocket:<br>
 
 ![RoboFriends Preview](./src/images/site-demo.gif)
 
